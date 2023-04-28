@@ -78,7 +78,7 @@ contract boywithuke is ERC721, Ownable, SoulBound {
             _whitelistCounter.current() + 1 <= MAX_SUPPLY_WHITELIST,
             "Buy exceeds max supply"
         );
-        require(whitelistMinted[msg.sender] == false, "Ticket already bought");
+        require(!whitelistMinted[msg.sender], "Ticket already bought");
         require(_proof.length > 0, "Proof can't be empty");
         require(
             MerkleProof.verify(

@@ -2,6 +2,8 @@ require("dotenv").config();
 
 require("@nomicfoundation/hardhat-toolbox");
 
+const { RPC, PRIVATE_KEY } = process.env;
+
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
