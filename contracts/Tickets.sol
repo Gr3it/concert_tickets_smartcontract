@@ -52,12 +52,14 @@ contract boywithuke is ERC721, Ownable, SoulBound {
             ownedTokenIndex < ownerTokenCount &&
             currentTokenId <= MAX_SUPPLY_SALE + MAX_SUPPLY_WHITELIST
         ) {
-            address currentTokenOwner = ownerOf(currentTokenId);
+            if (_exists(currentTokenId)) {
+                address currentTokenOwner = ownerOf(currentTokenId);
 
-            if (currentTokenOwner == _owner) {
-                ownedTokenIds[ownedTokenIndex] = currentTokenId;
+                if (currentTokenOwner == _owner) {
+                    ownedTokenIds[ownedTokenIndex] = currentTokenId;
 
-                ownedTokenIndex++;
+                    ownedTokenIndex++;
+                }
             }
 
             currentTokenId++;
