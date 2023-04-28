@@ -17,18 +17,21 @@ contract boywithuke is ERC721, Ownable, SoulBound {
 
     uint256 public immutable START_TIME;
 
-    bytes32 private root;
+    bytes32 private immutable root;
 
     Counters.Counter private _whitelistCounter;
     Counters.Counter private _saleCounter;
 
     mapping(address => bool) public whitelistMinted;
 
-    constructor()
+    constructor(
+        bytes32 _root
+    )
         ERC721("boywithuke concert ticket", "BWU")
         SoulBound("boywithuke SB", "BWU_SB")
     {
         START_TIME = block.timestamp;
+        root = _root;
     }
 
     modifier callerIsUser() {
