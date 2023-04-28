@@ -90,6 +90,8 @@ contract boywithuke is ERC721, Ownable, SoulBound {
         );
         require(msg.value >= PRICE, "Price not met");
 
+        whitelistMinted[msg.sender] = true;
+
         _whitelistCounter.increment();
         _mint(msg.sender, _whitelistCounter.current());
 
