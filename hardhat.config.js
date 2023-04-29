@@ -2,7 +2,7 @@ require("dotenv").config();
 
 require("@nomicfoundation/hardhat-toolbox");
 
-const { RPC, PRIVATE_KEY } = process.env;
+const { RPC, PRIVATE_KEY, ETHERSCAN_TOKEN } = process.env;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -23,5 +23,8 @@ module.exports = {
   },
   mocha: {
     timeout: 40000,
+  },
+  etherscan: {
+    apiKey: ETHERSCAN_TOKEN,
   },
 };
